@@ -8,9 +8,9 @@ from account.utils import Util
 class UserRegistrationSerializer(serializers.ModelSerializer):
   class Meta:
     model = User
-    fields=['email', 'name', 'password']
+    fields=['email', 'password']
     extra_kwargs={
-      'password':{'write_only':True}
+      'password':{'write_only':True,"min_length":8}
     }
 
   def create(self, validate_data):
